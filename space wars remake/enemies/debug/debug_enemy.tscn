@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs4ihdbgvkhxl"]
+
+[ext_resource type="PackedScene" uid="uid://bphv3sel8ocdx" path="res://enemy parts/enemy_template.tscn" id="1_alupr"]
+[ext_resource type="Script" path="res://enemies/debug/debug_enemy.gd" id="2_0yisc"]
+
+[node name="debug enemy" instance=ExtResource("1_alupr")]
+script = ExtResource("2_0yisc")
+health = 3
+
+[editable path="hitbox"]

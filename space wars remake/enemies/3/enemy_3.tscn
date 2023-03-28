@@ -1,0 +1,45 @@
+[gd_scene load_steps=10 format=3 uid="uid://bkgh68oom6kxf"]
+
+[ext_resource type="PackedScene" uid="uid://bphv3sel8ocdx" path="res://enemy parts/enemy_template.tscn" id="1_ekdph"]
+[ext_resource type="Script" path="res://enemies/3/enemy_3.gd" id="2_f3nvm"]
+[ext_resource type="PackedScene" uid="uid://ck5jqkd2ei15c" path="res://enemies/3/bullet_3.tscn" id="3_v2piy"]
+[ext_resource type="Texture2D" uid="uid://d1tmxlv04m0ge" path="res://textures/enemies/enemy 3.png" id="4_nyu6c"]
+[ext_resource type="Texture2D" uid="uid://h463y401xc27" path="res://textures/particles/red.png" id="5_xgnku"]
+[ext_resource type="AudioStream" uid="uid://b140tqf2yxbxb" path="res://sounds/shooting/rocket 1.mp3" id="6_71ims"]
+
+[sub_resource type="Curve" id="Curve_vt7rg"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_utr7g"]
+curve = SubResource("Curve_vt7rg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gv58w"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_curve = SubResource("CurveTexture_utr7g")
+
+[node name="enemy" instance=ExtResource("1_ekdph")]
+script = ExtResource("2_f3nvm")
+bulletPath = ExtResource("3_v2piy")
+health = 10
+
+[node name="sprite" parent="." index="0"]
+texture = ExtResource("4_nyu6c")
+
+[node name="CollisionPolygon2D" parent="hitbox" index="0"]
+polygon = PackedVector2Array(-14, 5, 14, 5, 14, -5, -14, -5)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="3"]
+position = Vector2(-12, 0)
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_gv58w")
+texture = ExtResource("5_xgnku")
+lifetime = 0.2
+
+[node name="shootsound" parent="." index="5"]
+stream = ExtResource("6_71ims")
+
+[editable path="hitbox"]

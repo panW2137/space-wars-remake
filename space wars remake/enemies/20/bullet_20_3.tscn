@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvtq0u3yshpu0"]
+
+[ext_resource type="PackedScene" uid="uid://cc6ydfnc3jq04" path="res://enemy parts/bullet_template.tscn" id="1_6f6mf"]
+[ext_resource type="Texture2D" uid="uid://bxfm0ko4wb63t" path="res://textures/particles/cyan.png" id="2_1g4ld"]
+[ext_resource type="Texture2D" uid="uid://lhm2mh4i57k0" path="res://textures/particles/l blue.png" id="3_k1e41"]
+
+[sub_resource type="Curve" id="Curve_q7dwp"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5h51m"]
+curve = SubResource("Curve_q7dwp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i82fb"]
+emission_shape = 1
+emission_sphere_radius = 5.0
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_curve = SubResource("CurveTexture_5h51m")
+
+[node name="bullet 20 3" instance=ExtResource("1_6f6mf")]
+recoil = 360.0
+
+[node name="Sprite2D" parent="." index="0"]
+visible = false
+
+[node name="hurtbox" parent="." index="1"]
+damage = 15
+
+[node name="CollisionPolygon2D" parent="hurtbox" index="0"]
+polygon = PackedVector2Array(0, 2, 2, 0, 0, -2, -2, 0)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="3"]
+amount = 4
+process_material = SubResource("ParticleProcessMaterial_i82fb")
+texture = ExtResource("2_1g4ld")
+local_coords = true
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="." index="4"]
+amount = 4
+process_material = SubResource("ParticleProcessMaterial_i82fb")
+texture = ExtResource("3_k1e41")
+local_coords = true
+
+[editable path="hurtbox"]

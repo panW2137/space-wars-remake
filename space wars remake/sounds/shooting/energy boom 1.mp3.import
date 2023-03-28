@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://1122mn50ilyj"
+path="res://.godot/imported/energy boom 1.mp3-6612fb0b51b37dc9c3ece1e3b980e762.mp3str"
+
+[deps]
+
+source_file="res://sounds/shooting/energy boom 1.mp3"
+dest_files=["res://.godot/imported/energy boom 1.mp3-6612fb0b51b37dc9c3ece1e3b980e762.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

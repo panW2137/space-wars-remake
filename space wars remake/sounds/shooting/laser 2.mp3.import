@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bv3v0nv80063i"
+path="res://.godot/imported/laser 2.mp3-91c11eb4fb8a7afc139b146af5e7e442.mp3str"
+
+[deps]
+
+source_file="res://sounds/shooting/laser 2.mp3"
+dest_files=["res://.godot/imported/laser 2.mp3-91c11eb4fb8a7afc139b146af5e7e442.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca4mukqxhdm7l"]
+
+[ext_resource type="Script" path="res://ui/world_ui.gd" id="1_unu1w"]
+
+[node name="world ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_unu1w")
+
+[node name="HP empty" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 456.0
+offset_right = 128.0
+offset_bottom = 472.0
+color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[node name="HP full" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 456.0
+offset_right = 128.0
+offset_bottom = 472.0
+
+[node name="enemy HP empty" type="ColorRect" parent="."]
+offset_left = 672.0
+offset_top = 8.0
+offset_right = 792.0
+offset_bottom = 24.0
+color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[node name="enemy HP full" type="ColorRect" parent="."]
+offset_left = 672.0
+offset_top = 8.0
+offset_right = 792.0
+offset_bottom = 24.0
+color = Color(0.321569, 0.0313726, 0, 1)

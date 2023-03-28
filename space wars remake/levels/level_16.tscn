@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://671j6oclepl1"]
+
+[ext_resource type="PackedScene" uid="uid://csxw2hirm7k0p" path="res://world/world.tscn" id="1_foms0"]
+[ext_resource type="Texture2D" uid="uid://cxk14tsipqlx4" path="res://textures/backgrounds/bg 4.png" id="2_0o5dc"]
+[ext_resource type="PackedScene" uid="uid://7ukj1v2v02rq" path="res://enemies/16/enemy_16.tscn" id="2_p7ims"]
+
+[node name="level 16" instance=ExtResource("1_foms0")]
+
+[node name="Background" parent="." index="0"]
+texture = ExtResource("2_0o5dc")
+
+[node name="enemy" parent="." index="8" instance=ExtResource("2_p7ims")]
+position = Vector2(744, 424)
+
+[connection signal="enemy_dead" from="enemy" to="." method="_on_enemy_enemy_dead"]
+[connection signal="enemy_hurt" from="enemy" to="." method="_on_enemy_enemy_hurt"]
