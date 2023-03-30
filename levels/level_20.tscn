@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://dshi4akcnmbaw"]
+
+[ext_resource type="PackedScene" uid="uid://csxw2hirm7k0p" path="res://world/world.tscn" id="1_odx74"]
+[ext_resource type="Script" path="res://levels/level_20.gd" id="2_450ru"]
+[ext_resource type="PackedScene" uid="uid://dlod1fyum6jtj" path="res://enemies/20/enemy_20_p_1.tscn" id="2_vulut"]
+[ext_resource type="Texture2D" uid="uid://cxk14tsipqlx4" path="res://textures/backgrounds/bg 4.png" id="3_txdw8"]
+[ext_resource type="PackedScene" uid="uid://caxspt4gjnc8h" path="res://enemies/20/enemy_20_p_2.tscn" id="4_amwae"]
+[ext_resource type="PackedScene" uid="uid://k5xsmn2fbg60" path="res://enemies/20/enemy_20_p_3.tscn" id="5_8fgse"]
+
+[node name="level 20" instance=ExtResource("1_odx74")]
+script = ExtResource("2_450ru")
+
+[node name="Background" parent="." index="0"]
+texture = ExtResource("3_txdw8")
+
+[node name="boss starting pos" type="Marker2D" parent="." index="8"]
+position = Vector2(736, 416)
+
+[node name="enemy 20 p 1" parent="." index="9" instance=ExtResource("2_vulut")]
+process_mode = 4
+position = Vector2(1112, 160)
+disabled = true
+
+[node name="enemy 20 p 2" parent="." index="10" instance=ExtResource("4_amwae")]
+process_mode = 4
+position = Vector2(1112, 208)
+disabled = true
+
+[node name="enemy 20 p 3" parent="." index="11" instance=ExtResource("5_8fgse")]
+process_mode = 4
+position = Vector2(1120, 240)
+disabled = true
+
+[connection signal="enemy_dead" from="enemy 20 p 1" to="." method="_on_enemy_20_p_1_enemy_dead"]
+[connection signal="enemy_hurt" from="enemy 20 p 1" to="." method="_on_enemy_20_p_1_enemy_hurt"]
+[connection signal="enemy_dead" from="enemy 20 p 2" to="." method="_on_enemy_20_p_2_enemy_dead"]
+[connection signal="enemy_hurt" from="enemy 20 p 2" to="." method="_on_enemy_20_p_2_enemy_hurt"]
+[connection signal="enemy_dead" from="enemy 20 p 3" to="." method="_on_enemy_20_p_3_enemy_dead"]
+[connection signal="enemy_hurt" from="enemy 20 p 3" to="." method="_on_enemy_20_p_3_enemy_hurt"]

@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://evtyiac40eda"]
+
+[ext_resource type="FontFile" uid="uid://c4x42sd2xeuos" path="res://Hunger Games.ttf" id="1_qhkms"]
+[ext_resource type="Script" path="res://ui/level_button.gd" id="2_ywyh1"]
+[ext_resource type="AudioStream" uid="uid://b8rrmpb8sll77" path="res://sounds/effects/hover.mp3" id="3_3tgdt"]
+[ext_resource type="AudioStream" uid="uid://d3vl22rp4syu" path="res://sounds/effects/click.mp3" id="4_wfof2"]
+
+[node name="Button" type="Button"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -240.0
+offset_right = -320.0
+offset_bottom = -192.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_qhkms")
+theme_override_font_sizes/font_size = 32
+text = "000"
+script = ExtResource("2_ywyh1")
+
+[node name="hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_3tgdt")
+volume_db = -5.0
+pitch_scale = 1.5
+
+[node name="click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_wfof2")
+volume_db = -5.0
+pitch_scale = 1.2
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="pressed" from="." to="." method="sound"]

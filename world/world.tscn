@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=3 uid="uid://csxw2hirm7k0p"]
+
+[ext_resource type="Texture2D" uid="uid://etnmwpus53h2" path="res://textures/world/background.png" id="1_k51w2"]
+[ext_resource type="Script" path="res://world/world.gd" id="1_s7beu"]
+[ext_resource type="PackedScene" uid="uid://vyddl3k5288n" path="res://player/player.tscn" id="2_ej5py"]
+[ext_resource type="PackedScene" uid="uid://ca4mukqxhdm7l" path="res://ui/world_ui.tscn" id="5_osgk1"]
+[ext_resource type="PackedScene" uid="uid://cgmwv6nfe2e7k" path="res://ui/game_over_screen.tscn" id="6_5uf4c"]
+[ext_resource type="PackedScene" uid="uid://xxej4b340q6i" path="res://ui/game_won_screen.tscn" id="7_5ek0m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ht8pv"]
+size = Vector2(864, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rab1h"]
+size = Vector2(32, 480)
+
+[node name="world" type="Node2D"]
+script = ExtResource("1_s7beu")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_k51w2")
+centered = false
+
+[node name="border" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border"]
+position = Vector2(400, -16)
+shape = SubResource("RectangleShape2D_ht8pv")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="border"]
+position = Vector2(400, 496)
+shape = SubResource("RectangleShape2D_ht8pv")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="border"]
+position = Vector2(-16, 240)
+shape = SubResource("RectangleShape2D_rab1h")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="border"]
+position = Vector2(816, 240)
+shape = SubResource("RectangleShape2D_rab1h")
+
+[node name="border physical" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border physical"]
+position = Vector2(400, -16)
+shape = SubResource("RectangleShape2D_ht8pv")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="border physical"]
+position = Vector2(400, 496)
+shape = SubResource("RectangleShape2D_ht8pv")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="border physical"]
+position = Vector2(-16, 240)
+shape = SubResource("RectangleShape2D_rab1h")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="border physical"]
+position = Vector2(816, 240)
+shape = SubResource("RectangleShape2D_rab1h")
+
+[node name="player" parent="." instance=ExtResource("2_ej5py")]
+position = Vector2(64, 64)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="world ui" parent="." instance=ExtResource("5_osgk1")]
+
+[node name="game over screen" parent="." instance=ExtResource("6_5uf4c")]
+visible = false
+
+[node name="game won screen" parent="." instance=ExtResource("7_5ek0m")]
+visible = false
+
+[connection signal="player_dead" from="player" to="." method="_on_player_player_dead"]

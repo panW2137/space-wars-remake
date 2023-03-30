@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://bphv3sel8ocdx"]
+
+[ext_resource type="Texture2D" uid="uid://c4udpp6oxvxtu" path="res://textures/enemies/debug.png" id="1_gd3oh"]
+[ext_resource type="Script" path="res://enemy parts/enemy_template.gd" id="1_qn350"]
+[ext_resource type="PackedScene" uid="uid://dgafs4wvs6qor" path="res://collision/hitbox.tscn" id="2_o73iv"]
+[ext_resource type="AudioStream" uid="uid://p3jhbqeiyhax" path="res://sounds/effects/hit smth sound.mp3" id="4_m384l"]
+[ext_resource type="AudioStream" uid="uid://bd0txerwjr8wa" path="res://sounds/shooting/laser 1.mp3" id="5_51sas"]
+
+[node name="enemy template" type="CharacterBody2D"]
+script = ExtResource("1_qn350")
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_gd3oh")
+
+[node name="hitbox" parent="." instance=ExtResource("2_o73iv")]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionPolygon2D" parent="hitbox" index="0"]
+polygon = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
+
+[node name="border detector" parent="." instance=ExtResource("2_o73iv")]
+collision_mask = 16
+
+[node name="hitsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_m384l")
+
+[node name="shootsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_51sas")
+volume_db = -5.0
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+
+[editable path="hitbox"]

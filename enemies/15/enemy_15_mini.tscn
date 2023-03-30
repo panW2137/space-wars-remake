@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfq4i8pu1ok81"]
+
+[ext_resource type="PackedScene" uid="uid://bphv3sel8ocdx" path="res://enemy parts/enemy_template.tscn" id="1_7qj3b"]
+[ext_resource type="Texture2D" uid="uid://bnruftexdwfnn" path="res://textures/enemies/enemy 15 mini.png" id="2_jsjsj"]
+[ext_resource type="Script" path="res://enemies/15/enemy_15_mini.gd" id="2_megn5"]
+[ext_resource type="PackedScene" uid="uid://bemwawaa0f84p" path="res://enemies/15/bullet_15_mini.tscn" id="3_ty3e7"]
+[ext_resource type="AudioStream" uid="uid://b1ggdh52msaee" path="res://sounds/shooting/laser 3.mp3" id="5_6a2xt"]
+
+[node name="enemy 15 mini" instance=ExtResource("1_7qj3b")]
+script = ExtResource("2_megn5")
+bulletPath = ExtResource("3_ty3e7")
+speed = 150
+
+[node name="sprite" parent="." index="0"]
+texture = ExtResource("2_jsjsj")
+
+[node name="CollisionPolygon2D" parent="hitbox" index="0"]
+polygon = PackedVector2Array(-8, 8, 0, 16, 8, 8, 8, -8, 0, -16, -8, -8)
+
+[node name="shootsound" parent="." index="4"]
+stream = ExtResource("5_6a2xt")
+pitch_scale = 1.1
+
+[editable path="hitbox"]

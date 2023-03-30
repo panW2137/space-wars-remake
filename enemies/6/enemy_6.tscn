@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://cs7f36mwutrd3"]
+
+[ext_resource type="PackedScene" uid="uid://bphv3sel8ocdx" path="res://enemy parts/enemy_template.tscn" id="1_r85yn"]
+[ext_resource type="Script" path="res://enemies/6/enemy_6.gd" id="2_482id"]
+[ext_resource type="Texture2D" uid="uid://crxuswpr3royo" path="res://textures/enemies/enemy 6.png" id="2_yoooo"]
+[ext_resource type="PackedScene" uid="uid://dgh7sidaiux36" path="res://enemies/6/bullet_6.tscn" id="3_v1nry"]
+[ext_resource type="AudioStream" uid="uid://bv3v0nv80063i" path="res://sounds/shooting/laser 2.mp3" id="5_gl464"]
+
+[node name="enemy 6" instance=ExtResource("1_r85yn")]
+script = ExtResource("2_482id")
+bulletPath = ExtResource("3_v1nry")
+health = 8
+speed = 0
+
+[node name="sprite" parent="." index="0"]
+texture = ExtResource("2_yoooo")
+hframes = 2
+
+[node name="shootsound" parent="." index="4"]
+stream = ExtResource("5_gl464")
+
+[editable path="hitbox"]

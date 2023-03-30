@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://3vd70m514ssd"]
+
+[ext_resource type="PackedScene" uid="uid://bphv3sel8ocdx" path="res://enemy parts/enemy_template.tscn" id="1_l25ft"]
+[ext_resource type="Script" path="res://enemies/1/enemy_1.gd" id="2_3wste"]
+[ext_resource type="Texture2D" uid="uid://54j5abnm7m06" path="res://textures/enemies/enemy 1.png" id="2_tk57o"]
+[ext_resource type="PackedScene" uid="uid://blp88ay48p4mm" path="res://enemies/1/bullet_1.tscn" id="2_ylab5"]
+[ext_resource type="Texture2D" uid="uid://h463y401xc27" path="res://textures/particles/red.png" id="5_prilt"]
+
+[sub_resource type="Curve" id="Curve_671j2"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.73494, 0.554545), -1.42032, -1.42032, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_18elr"]
+curve = SubResource("Curve_671j2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8ybka"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_curve = SubResource("CurveTexture_18elr")
+
+[node name="enemy 1" instance=ExtResource("1_l25ft")]
+script = ExtResource("2_3wste")
+bulletPath = ExtResource("2_ylab5")
+health = 10
+speed = 150
+acceleration = 5.0
+
+[node name="sprite" parent="." index="0"]
+texture = ExtResource("2_tk57o")
+hframes = 2
+
+[node name="CollisionPolygon2D" parent="hitbox" index="0"]
+polygon = PackedVector2Array(-8, 16, 8, 0, -8, -16)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="3"]
+position = Vector2(-8, 0)
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_8ybka")
+texture = ExtResource("5_prilt")
+lifetime = 0.2
+
+[editable path="hitbox"]

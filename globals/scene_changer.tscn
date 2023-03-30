@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbs73mtsc0cdq"]
+
+[ext_resource type="Script" path="res://globals/scene_changer.gd" id="1_dggt4"]
+
+[sub_resource type="Animation" id="Animation_kqnjd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("black:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jec6w"]
+resource_name = "black"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("black:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cl8qw"]
+_data = {
+"RESET": SubResource("Animation_kqnjd"),
+"black": SubResource("Animation_jec6w")
+}
+
+[node name="scene changer" type="CanvasLayer"]
+script = ExtResource("1_dggt4")
+
+[node name="black" type="ColorRect" parent="."]
+offset_right = 800.0
+offset_bottom = 480.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cl8qw")
+}

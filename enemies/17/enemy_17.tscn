@@ -1,0 +1,77 @@
+[gd_scene load_steps=10 format=3 uid="uid://i4woqx3oqmlu"]
+
+[ext_resource type="PackedScene" uid="uid://bphv3sel8ocdx" path="res://enemy parts/enemy_template.tscn" id="1_iont4"]
+[ext_resource type="Texture2D" uid="uid://yw0arwv8ydcd" path="res://textures/enemies/enemy 17.png" id="2_cnwnp"]
+[ext_resource type="Script" path="res://enemies/17/enemy_17.gd" id="2_di3ek"]
+[ext_resource type="PackedScene" uid="uid://b5x6juhgrf7bb" path="res://enemies/17/bullet_17.tscn" id="3_deffp"]
+[ext_resource type="Texture2D" uid="uid://lhm2mh4i57k0" path="res://textures/particles/l blue.png" id="4_4lqbi"]
+[ext_resource type="AudioStream" uid="uid://3vc3te2rdw53" path="res://sounds/shooting/machine gun 1.mp3" id="6_ccsfs"]
+
+[sub_resource type="Curve" id="Curve_u3mpl"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.722892, 0.527273), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_n1tgh"]
+curve = SubResource("Curve_u3mpl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ani3d"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_curve = SubResource("CurveTexture_n1tgh")
+
+[node name="enemy 17" instance=ExtResource("1_iont4")]
+script = ExtResource("2_di3ek")
+bulletPath = ExtResource("3_deffp")
+health = 20
+speed = 200
+
+[node name="sprite" parent="." index="0"]
+texture = ExtResource("2_cnwnp")
+
+[node name="CollisionPolygon2D" parent="hitbox" index="0"]
+polygon = PackedVector2Array(-26, 9, 17, 9, 26, 0, 17, -9, -26, -9)
+
+[node name="laser 1" type="Line2D" parent="." index="3"]
+points = PackedVector2Array(0, 0, 1472, 0)
+width = 1.0
+default_color = Color(0, 0.572549, 0.823529, 0.34902)
+
+[node name="laser 2" type="Line2D" parent="." index="4"]
+points = PackedVector2Array(0, 0, 1472, 0)
+width = 1.0
+default_color = Color(0, 0.572549, 0.823529, 0.34902)
+
+[node name="laser 3" type="Line2D" parent="." index="5"]
+points = PackedVector2Array(0, 0, 1472, 0)
+width = 1.0
+default_color = Color(0, 0.572549, 0.823529, 0.34902)
+
+[node name="Timer" type="Timer" parent="." index="6"]
+wait_time = 3.0
+autostart = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="7"]
+position = Vector2(-26, -5)
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_ani3d")
+texture = ExtResource("4_4lqbi")
+lifetime = 0.3
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="." index="8"]
+position = Vector2(-26, 5)
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_ani3d")
+texture = ExtResource("4_4lqbi")
+lifetime = 0.3
+
+[node name="shootsound" parent="." index="10"]
+stream = ExtResource("6_ccsfs")
+volume_db = -10.0
+autoplay = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="finished" from="shootsound" to="." method="_on_shootsound_finished"]
+
+[editable path="hitbox"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c5lgm4wylu3m1"
+path="res://.godot/imported/heavy laser 1.mp3-583e9b51b6b4a43a5d6e8baa6bafd0fb.mp3str"
+
+[deps]
+
+source_file="res://sounds/shooting/heavy laser 1.mp3"
+dest_files=["res://.godot/imported/heavy laser 1.mp3-583e9b51b6b4a43a5d6e8baa6bafd0fb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

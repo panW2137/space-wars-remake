@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck5jqkd2ei15c"]
+
+[ext_resource type="PackedScene" uid="uid://cc6ydfnc3jq04" path="res://enemy parts/bullet_template.tscn" id="1_suj78"]
+[ext_resource type="Texture2D" uid="uid://bdecjfkqbidt5" path="res://textures/bullets/bullet 3.png" id="2_380w7"]
+
+[node name="bullet 3" instance=ExtResource("1_suj78")]
+speed = 350
+recoil = 20.0
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_380w7")
+
+[node name="hurtbox" parent="." index="1"]
+damage = 25
+
+[node name="CollisionPolygon2D" parent="hurtbox" index="0"]
+polygon = PackedVector2Array(-2, 1, 4, 1, 4, -1, -2, -1)
+
+[editable path="hurtbox"]

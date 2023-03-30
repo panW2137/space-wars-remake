@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=3 uid="uid://dlod1fyum6jtj"]
+
+[ext_resource type="PackedScene" uid="uid://bphv3sel8ocdx" path="res://enemy parts/enemy_template.tscn" id="1_0pyvt"]
+[ext_resource type="Texture2D" uid="uid://2w7w40epu35m" path="res://textures/enemies/enemy 20 phase 1.png" id="2_d5xmk"]
+[ext_resource type="Script" path="res://enemies/20/enemy_20_p_1.gd" id="2_iu4ve"]
+[ext_resource type="PackedScene" uid="uid://bvve5y73q3voq" path="res://enemies/20/bullet_20_2.tscn" id="3_3uc48"]
+[ext_resource type="PackedScene" uid="uid://fin0ql2jsawm" path="res://enemies/20/bullet_20_1.tscn" id="4_c6ptj"]
+[ext_resource type="Texture2D" uid="uid://lhm2mh4i57k0" path="res://textures/particles/l blue.png" id="6_gb8m1"]
+[ext_resource type="AudioStream" uid="uid://d0gjxbnmsmhja" path="res://sounds/shooting/laser 4.mp3" id="7_ixmd4"]
+[ext_resource type="AudioStream" uid="uid://d02538s6woned" path="res://sounds/shooting/rocket 2.mp3" id="8_6ogec"]
+
+[sub_resource type="Curve" id="Curve_1tu14"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.753012, 0.518182), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_feoex"]
+curve = SubResource("Curve_1tu14")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iaere"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_curve = SubResource("CurveTexture_feoex")
+
+[node name="enemy 20 p 1" instance=ExtResource("1_0pyvt")]
+script = ExtResource("2_iu4ve")
+bullet2Path = ExtResource("3_3uc48")
+bulletPath = ExtResource("4_c6ptj")
+health = 20
+
+[node name="sprite" parent="." index="0"]
+texture = ExtResource("2_d5xmk")
+hframes = 2
+
+[node name="CollisionPolygon2D" parent="hitbox" index="0"]
+polygon = PackedVector2Array(-35, 21, -39, 15, -39, -15, -35, -21, -9, -21, -3, -16, -3, -10, 31, -10, 39, -3, 39, 3, 31, 10, -3, 10, -3, 16, -9, 21)
+
+[node name="cannon" type="Marker2D" parent="." index="3"]
+
+[node name="aimer" type="Marker2D" parent="cannon" index="0"]
+position = Vector2(16, 0)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="4"]
+position = Vector2(-39, -13)
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_iaere")
+texture = ExtResource("6_gb8m1")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="." index="5"]
+position = Vector2(-39, 13)
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_iaere")
+texture = ExtResource("6_gb8m1")
+
+[node name="GPUParticles2D3" type="GPUParticles2D" parent="." index="6"]
+position = Vector2(-39, 0)
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_iaere")
+texture = ExtResource("6_gb8m1")
+
+[node name="shootsound" parent="." index="8"]
+stream = ExtResource("7_ixmd4")
+
+[node name="rocketsound" type="AudioStreamPlayer" parent="." index="9"]
+stream = ExtResource("8_6ogec")
+volume_db = -2.0
+pitch_scale = 0.8
+
+[editable path="hitbox"]
