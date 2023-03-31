@@ -36,11 +36,8 @@ texture = ExtResource("2_77ih0")
 hframes = 2
 frame = 1
 
-[node name="hitbox" parent="." index="1"]
-visible = false
-
 [node name="CollisionPolygon2D" parent="hitbox" index="0"]
-polygon = PackedVector2Array(-21, 9, -14, 9, -11, 16, -7, 9, 4, 9, 7, 16, 11, 9, 14, 9, 17, 7, 21, 0, 17, -7, 14, -9, 11, -9, 7, -16, 4, -9, -7, -9, -11, -16, -14, -9, -21, -9)
+polygon = PackedVector2Array(-23, 9, -11, 18, 7, 18, 19, 7, 23, 0, 19, -7, 7, -18, -11, -18, -23, -9)
 
 [node name="shield" type="Sprite2D" parent="." index="3"]
 texture = ExtResource("3_lyirv")
@@ -61,6 +58,10 @@ offset_right = 664.0
 offset_bottom = 24.0
 color = Color(0.709804, 0.909804, 1, 1)
 
+[node name="Line2D" type="Line2D" parent="ui" index="2"]
+points = PackedVector2Array(544, 8, 664, 8, 664, 24, 544, 24, 544, 7)
+width = 2.0
+
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." index="5"]
 position = Vector2(-21, -5)
 amount = 32
@@ -76,7 +77,7 @@ texture = ExtResource("6_inwkt")
 lifetime = 0.1
 
 [node name="Timer" type="Timer" parent="." index="7"]
-wait_time = 2.0
+wait_time = 2.5
 autostart = true
 
 [node name="shootsound" parent="." index="9"]

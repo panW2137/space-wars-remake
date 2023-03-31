@@ -14,7 +14,7 @@ func aiLoop():
 		for i in 50:
 			for j in 5:
 				shoot_at(Globals.playerPos)
-			await  wait(0.1)
+			await  wait(0.2)
 		await wait(0.5)
 		for j in 5:
 			shootSound.play()

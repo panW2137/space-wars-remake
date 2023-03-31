@@ -7,6 +7,8 @@ signal player_dead
 @onready var particles = $GPUParticles2D
 @onready var hitSound = $"hit sound"
 @onready var shootSound = $"shoot sound"
+@onready var scope = $scope
+@onready var animation = $AnimationPlayer
 
 @onready var bulletPath:PackedScene = preload("res://player/player_bullet.tscn")
 @onready var deathEffectPath:PackedScene = preload("res://death effects/death_effect.tscn")
@@ -18,6 +20,7 @@ var acceleration:float = 20
 var canShoot:bool = true
 
 func _ready():
+	scope.visible = Globals.laserScope
 	Globals.playerHealth = health
 	colorParts.modulate = Globals.playerColor
 	particles.modulate = Globals.playerColor
@@ -52,6 +55,7 @@ func shootingCooldown(sec:int):
 
 func _on_hitbox_area_entered(area):
 	hitSound.play()
+	animation.play("shield")
 	health -= area.damage
 	Globals.playerHealth = health
 	if health <= 0:
@@ -68,6 +72,12 @@ func _on_hitbox_area_entered(area):
 
 func _on_regeneration_timeout():
 	if health < 100:
-		health += Globals.playerRegen
+		match Globals.difficulty:
+			Globals.diffLevs.EASY:
+				health += Globals.playerRegen * 2
+			Globals.diffLevs.NORMAL:
+				health += Globals.playerRegen
+			Globals.diffLevs.HARD:
+				health += Globals.playerRegen * 0.5
 	if health > 100:
 		health = 100

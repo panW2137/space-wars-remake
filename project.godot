@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="space wars remastered"
-run/main_scene="res://splash/splash.tscn"
+run/main_scene="res://ui/main_menu.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 boot_splash/image="res://splash/splash.png"
 config/icon="res://icon.png"

@@ -16,6 +16,9 @@ speed = 0
 texture = ExtResource("2_yoooo")
 hframes = 2
 
+[node name="CollisionPolygon2D" parent="hitbox" index="0"]
+polygon = PackedVector2Array(-10, 10, 10, 10, 12, 0, 10, -10, -10, -10, -12, 0)
+
 [node name="shootsound" parent="." index="4"]
 stream = ExtResource("5_gl464")
 

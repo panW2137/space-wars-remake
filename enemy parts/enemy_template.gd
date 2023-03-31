@@ -36,6 +36,14 @@ func enable():
 	set_random_target()
 
 func _ready():
+	match Globals.difficulty:
+		Globals.diffLevs.EASY:
+			speed *= 0.7
+		Globals.diffLevs.NORMAL:
+			speed *= 1
+		Globals.diffLevs.HARD:
+			speed *= 1.2
+			
 	if !disabled:
 		randomize()
 		aiLoop()

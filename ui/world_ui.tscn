@@ -27,6 +27,7 @@ offset_right = 128.0
 offset_bottom = 472.0
 
 [node name="enemy HP empty" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 672.0
 offset_top = 8.0
 offset_right = 792.0
@@ -34,8 +35,18 @@ offset_bottom = 24.0
 color = Color(0.12549, 0.12549, 0.12549, 1)
 
 [node name="enemy HP full" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 672.0
 offset_top = 8.0
 offset_right = 792.0
 offset_bottom = 24.0
-color = Color(0.321569, 0.0313726, 0, 1)
+color = Color(0.596078, 0.0941176, 0, 1)
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(672, 8, 792, 8, 792, 24, 672, 24, 672, 7)
+width = 2.0
+
+[node name="Line2D2" type="Line2D" parent="."]
+position = Vector2(-664, 448)
+points = PackedVector2Array(672, 8, 792, 8, 792, 24, 672, 24, 672, 7)
+width = 2.0

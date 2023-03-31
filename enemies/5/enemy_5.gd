@@ -5,7 +5,7 @@ func aiLoop():
 		lookAtTarget = thingsToLookAt.PLAYER
 		
 		randomTeleport()
-		await wait(1)
+		await wait(2)
 		for i in 10:
 			shootSound.play()
 			shoot_at(Globals.playerPos)
@@ -13,4 +13,4 @@ func aiLoop():
 			shootSound.play()
 			shoot_at(get_global_mouse_position())
 			await wait(0.2)
-		await wait(1)
+		await wait(2)

@@ -17,7 +17,7 @@ acceleration = 25.0
 texture = ExtResource("2_snyy3")
 
 [node name="CollisionPolygon2D" parent="hitbox" index="0"]
-polygon = PackedVector2Array(-19, 7, -8, 9, -7, 13, 6, 13, 6, 5, 15, 6, 19, 0, 15, -6, 6, -5, 6, -13, -7, -13, -8, -9, -19, -7)
+polygon = PackedVector2Array(-21, 9, -9, 10, -8, 14, 6, 14, 8, 8, 15, 7, 21, 0, 15, -7, 8, -8, 6, -14, -8, -14, -9, -10, -21, -9)
 
 [node name="shootsound" parent="." index="4"]
 stream = ExtResource("5_6n4k3")

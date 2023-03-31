@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bjlg77alywrog"]
+[gd_scene load_steps=15 format=3 uid="uid://bjlg77alywrog"]
 
 [ext_resource type="FontFile" uid="uid://c4x42sd2xeuos" path="res://Hunger Games.ttf" id="1_hihjr"]
 [ext_resource type="Script" path="res://ui/main_menu.gd" id="1_qt4nq"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://drhmkx6eouvr8" path="res://ui/color select button.tscn" id="3_4cktk"]
 [ext_resource type="PackedScene" uid="uid://evtyiac40eda" path="res://ui/level_button.tscn" id="3_h8rhm"]
 [ext_resource type="Script" path="res://ui/levels.gd" id="5_oo4fy"]
+[ext_resource type="Texture2D" uid="uid://dordmx73xhhg6" path="res://textures/other/laser scope.png" id="7_5qbh6"]
 [ext_resource type="AudioStream" uid="uid://b8rrmpb8sll77" path="res://sounds/effects/hover.mp3" id="7_jb2ba"]
 [ext_resource type="AudioStream" uid="uid://d3vl22rp4syu" path="res://sounds/effects/click.mp3" id="8_yepfu"]
 
@@ -98,6 +99,7 @@ offset_right = 1600.0
 offset_bottom = 480.0
 
 [node name="colors" type="Control" parent="Panel"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -105,10 +107,8 @@ offset_bottom = 40.0
 [node name="debug level" type="Button" parent="Panel/colors"]
 visible = false
 layout_mode = 2
-offset_left = 625.0
-offset_top = 24.0
-offset_right = 800.0
-offset_bottom = 64.0
+offset_right = 200.0
+offset_bottom = 100.0
 theme_override_fonts/font = ExtResource("1_hihjr")
 theme_override_font_sizes/font_size = 22
 disabled = true
@@ -201,13 +201,6 @@ offset_top = 432.0
 offset_right = 760.0
 offset_bottom = 472.0
 color = Color(0.537255, 0, 0.0392157, 1)
-
-[node name="player color" type="ColorRect" parent="Panel/colors"]
-layout_mode = 2
-offset_left = 8.0
-offset_top = 424.0
-offset_right = 56.0
-offset_bottom = 472.0
 
 [node name="levels" type="Control" parent="Panel"]
 anchors_preset = 0
@@ -555,6 +548,43 @@ theme_override_fonts/font = ExtResource("1_hihjr")
 theme_override_font_sizes/font_size = 32
 text = "return"
 
+[node name="toggle color button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 424.0
+offset_right = 56.0
+offset_bottom = 472.0
+
+[node name="player color" type="ColorRect" parent="Panel"]
+layout_mode = 2
+offset_left = 8.0
+offset_top = 424.0
+offset_right = 56.0
+offset_bottom = 472.0
+mouse_filter = 2
+
+[node name="difficulty button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 664.0
+offset_top = 440.0
+offset_right = 792.0
+offset_bottom = 472.0
+theme_override_fonts/font = ExtResource("1_hihjr")
+theme_override_font_sizes/font_size = 20
+text = "MEDIUM"
+
+[node name="scope button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 440.0
+offset_right = 656.0
+offset_bottom = 472.0
+
+[node name="LaserScope" type="Sprite2D" parent="Panel/scope button"]
+position = Vector2(16, 16)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("7_5qbh6")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_q2nv6")
@@ -622,5 +652,14 @@ label_settings = SubResource("LabelSettings_ltwk5")
 [connection signal="pressed" from="Panel/exit button" to="." method="_button_click_sound"]
 [connection signal="pressed" from="Panel/exit button" to="." method="_on_exit_button_pressed"]
 [connection signal="mouse_entered" from="Panel/return button" to="." method="_on_button_mouse_entered"]
-[connection signal="pressed" from="Panel/return button" to="." method="_button_click_sound"]
 [connection signal="pressed" from="Panel/return button" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="Panel/return button" to="." method="_button_click_sound"]
+[connection signal="mouse_entered" from="Panel/toggle color button" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="Panel/toggle color button" to="." method="_button_click_sound"]
+[connection signal="pressed" from="Panel/toggle color button" to="." method="_on_toggle_color_button_pressed"]
+[connection signal="mouse_entered" from="Panel/difficulty button" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="Panel/difficulty button" to="." method="_button_click_sound"]
+[connection signal="pressed" from="Panel/difficulty button" to="." method="_on_difficulty_button_pressed"]
+[connection signal="mouse_entered" from="Panel/scope button" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="Panel/scope button" to="." method="_button_click_sound"]
+[connection signal="pressed" from="Panel/scope button" to="." method="_on_scope_button_pressed"]

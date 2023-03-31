@@ -15,7 +15,7 @@ health = 10
 texture = ExtResource("2_mi876")
 
 [node name="CollisionPolygon2D" parent="hitbox" index="0"]
-polygon = PackedVector2Array(-11, 5, 11, 5, 16, 0, 11, -5, -11, -5, -16, 0)
+polygon = PackedVector2Array(-13, 7, 13, 7, 18, 0, 13, -7, -13, -7, -18, 0)
 
 [node name="shootsound" parent="." index="4"]
 stream = ExtResource("5_kgj4f")

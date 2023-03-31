@@ -32,7 +32,7 @@ texture = ExtResource("2_tk57o")
 hframes = 2
 
 [node name="CollisionPolygon2D" parent="hitbox" index="0"]
-polygon = PackedVector2Array(-8, 16, 8, 0, -8, -16)
+polygon = PackedVector2Array(-9, 16, 10, 0, -9, -16)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." index="3"]
 position = Vector2(-8, 0)

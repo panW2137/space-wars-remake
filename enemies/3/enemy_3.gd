@@ -1,4 +1,7 @@
 extends Enemy
+@onready var laser = $Line2D
+func _process(_delta):
+	laser.look_at(get_global_mouse_position())
 
 func aiLoop():
 	while true:

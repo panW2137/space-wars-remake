@@ -34,7 +34,7 @@ texture = ExtResource("2_d5xmk")
 hframes = 2
 
 [node name="CollisionPolygon2D" parent="hitbox" index="0"]
-polygon = PackedVector2Array(-35, 21, -39, 15, -39, -15, -35, -21, -9, -21, -3, -16, -3, -10, 31, -10, 39, -3, 39, 3, 31, 10, -3, 10, -3, 16, -9, 21)
+polygon = PackedVector2Array(-39, 23, -39, -23, -9, -23, -1, -18, -1, -12, 31, -12, 41, -3, 41, 3, 31, 12, -1, 12, -1, 18, -9, 23)
 
 [node name="cannon" type="Marker2D" parent="." index="3"]
 

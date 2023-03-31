@@ -34,7 +34,7 @@ texture = ExtResource("2_s8w1s")
 hframes = 2
 
 [node name="CollisionPolygon2D" parent="hitbox" index="0"]
-polygon = PackedVector2Array(-32, 16, -4, 16, -4, 8, 30, 8, 37, 3, 37, -3, 30, -8, -4, -8, -4, -16, -32, -16, -37, -14, -37, 14)
+polygon = PackedVector2Array(-2, 18, -2, 10, 30, 10, 39, 3, 39, -3, 30, -10, -2, -10, -2, -18, -39, -18, -39, 18)
 
 [node name="Timer" type="Timer" parent="." index="3"]
 wait_time = 0.1

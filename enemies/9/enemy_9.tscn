@@ -32,7 +32,7 @@ acceleration = 15.0
 texture = ExtResource("2_3u00k")
 
 [node name="CollisionPolygon2D" parent="hitbox" index="0"]
-polygon = PackedVector2Array(-8, 8, 16, 8, 24, 0, 16, -8, -8, -8, -24, 0)
+polygon = PackedVector2Array(-11, 10, 16, 10, 26, 0, 16, -10, -11, -10, -27, 0)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." index="3"]
 position = Vector2(-24, 0)

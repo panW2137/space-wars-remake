@@ -31,7 +31,7 @@ speed = 200
 texture = ExtResource("2_cnwnp")
 
 [node name="CollisionPolygon2D" parent="hitbox" index="0"]
-polygon = PackedVector2Array(-26, 9, 17, 9, 26, 0, 17, -9, -26, -9)
+polygon = PackedVector2Array(-29, 12, 20, 12, 29, 0, 20, -12, -29, -12)
 
 [node name="laser 1" type="Line2D" parent="." index="3"]
 points = PackedVector2Array(0, 0, 1472, 0)

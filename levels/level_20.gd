@@ -30,9 +30,6 @@ func _ready():
 			bossPhase3.process_mode = Node.PROCESS_MODE_INHERIT
 			bossPhase3.enable()
 			
-func _physics_process(_delta):
-	if playerAlive:
-		ui.updatePlayerHP(player.health)
 
 func _on_enemy_20_p_1_enemy_dead():
 	bossPhase2.global_position = bossPhase1.global_position

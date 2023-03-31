@@ -35,7 +35,7 @@ texture = ExtResource("2_th1ar")
 polygon = PackedVector2Array(-16, 0, -13, 4, -5, 5, 3, 21, 3, 5, 9, 8, 16, 0, 9, -8, 3, -5, 3, -21, -5, -5, -13, -4)
 
 [node name="CollisionPolygon2D" parent="border detector" index="0"]
-polygon = PackedVector2Array(16, 16, 16, -16, 0, -24, -16, -16, -16, 16, 0, 24)
+polygon = PackedVector2Array(18, 16, 18, -16, 0, -24, -18, -16, -18, 16, 0, 24)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." index="3"]
 position = Vector2(-16, 0)

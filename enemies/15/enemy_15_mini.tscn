@@ -15,7 +15,7 @@ speed = 150
 texture = ExtResource("2_jsjsj")
 
 [node name="CollisionPolygon2D" parent="hitbox" index="0"]
-polygon = PackedVector2Array(-8, 8, 0, 16, 8, 8, 8, -8, 0, -16, -8, -8)
+polygon = PackedVector2Array(-10, 10, 0, 16, 10, 10, 10, -10, 0, -16, -10, -10)
 
 [node name="shootsound" parent="." index="4"]
 stream = ExtResource("5_6a2xt")

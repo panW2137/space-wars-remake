@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://c51t7cutle7e5"]
+[gd_scene load_steps=6 format=3 uid="uid://c51t7cutle7e5"]
 
 [ext_resource type="PackedScene" uid="uid://csxw2hirm7k0p" path="res://world/world.tscn" id="1_0ah8r"]
 [ext_resource type="Texture2D" uid="uid://dmxn31aj2gca7" path="res://textures/backgrounds/bg 1.png" id="2_306k5"]
 [ext_resource type="PackedScene" uid="uid://3vd70m514ssd" path="res://enemies/1/enemy_1.tscn" id="2_iidi2"]
+[ext_resource type="FontFile" uid="uid://c4x42sd2xeuos" path="res://Hunger Games.ttf" id="4_f5b7t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r5vvf"]
+font = ExtResource("4_f5b7t")
+font_color = Color(1, 1, 0, 1)
 
 [node name="level 1" instance=ExtResource("1_0ah8r")]
 
@@ -11,6 +16,23 @@ texture = ExtResource("2_306k5")
 
 [node name="enemy" parent="." index="8" instance=ExtResource("2_iidi2")]
 position = Vector2(704, 416)
+
+[node name="Label" type="Label" parent="." index="9"]
+offset_top = 8.0
+offset_right = 800.0
+offset_bottom = 56.0
+text = "Player ship will follow the mouse"
+label_settings = SubResource("LabelSettings_r5vvf")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="." index="10"]
+offset_top = 424.0
+offset_right = 800.0
+offset_bottom = 472.0
+text = "press left mouse button or space to shoot"
+label_settings = SubResource("LabelSettings_r5vvf")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [connection signal="enemy_dead" from="enemy" to="." method="_on_enemy_enemy_dead"]
 [connection signal="enemy_hurt" from="enemy" to="." method="_on_enemy_enemy_hurt"]

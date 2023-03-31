@@ -26,20 +26,25 @@ script = ExtResource("2_f3nvm")
 bulletPath = ExtResource("3_v2piy")
 health = 10
 
-[node name="sprite" parent="." index="0"]
+[node name="Line2D" type="Line2D" parent="." index="0"]
+points = PackedVector2Array(0, 0, 2304, 0)
+width = 1.0
+default_color = Color(0.772549, 0, 0.109804, 0.521569)
+
+[node name="sprite" parent="." index="1"]
 texture = ExtResource("4_nyu6c")
 
 [node name="CollisionPolygon2D" parent="hitbox" index="0"]
-polygon = PackedVector2Array(-14, 5, 14, 5, 14, -5, -14, -5)
+polygon = PackedVector2Array(-15, 6, 15, 6, 15, -6, -15, -6)
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="3"]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="4"]
 position = Vector2(-12, 0)
 amount = 32
 process_material = SubResource("ParticleProcessMaterial_gv58w")
 texture = ExtResource("5_xgnku")
 lifetime = 0.2
 
-[node name="shootsound" parent="." index="5"]
+[node name="shootsound" parent="." index="6"]
 stream = ExtResource("6_71ims")
 
 [editable path="hitbox"]

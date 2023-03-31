@@ -52,7 +52,7 @@ health = 20
 texture = ExtResource("2_c7xtm")
 
 [node name="CollisionPolygon2D" parent="hitbox" index="0"]
-polygon = PackedVector2Array(-32, 8, 32, 8, 40, 0, 32, -8, -32, -8, -48, 0)
+polygon = PackedVector2Array(-32, 10, 32, 10, 42, 0, 32, -10, -32, -10, -50, 0)
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="." index="3"]
 position = Vector2(-40, 0)

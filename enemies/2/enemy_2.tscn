@@ -33,7 +33,7 @@ hframes = 2
 
 [node name="CollisionPolygon2D" parent="hitbox" index="0"]
 position = Vector2(2, 0)
-polygon = PackedVector2Array(-16, 8, 8, 8, 8, -8, -16, -8)
+polygon = PackedVector2Array(-19, 9, 9, 9, 9, -9, -19, -9)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." index="3"]
 position = Vector2(-12, -5)

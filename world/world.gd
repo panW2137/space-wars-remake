@@ -11,6 +11,8 @@ var playerAlive:bool = true
 func _physics_process(_delta):
 	if playerAlive:
 		ui.updatePlayerHP(player.health)
+	else:
+		ui.updatePlayerHP(0)
 
 func _on_player_player_dead():
 	playerAlive = false
